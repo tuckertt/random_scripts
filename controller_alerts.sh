@@ -9,7 +9,9 @@ base_notification_url="https://api.telegram.org"
 # URL for checking messages "curl $base_notification_url/$api_token/getUpdates"
 
 # URL's to monitor
-test_url="https://store.nintendo.co.uk/en/nintendo-switch-usb-c-charging-cable-8ft-000000000010006767"
+working_test_url="https://store.nintendo.co.uk/en/nintendo-switch-usb-c-charging-cable-8ft-000000000010006767"
+broken_test_url="https://store.nintendo.co.uk/en/b-c-charging-cable-8ft-000000000010006767"
+
 nes_controller_url="https://store.nintendo.co.uk/en/nintendo-entertainment-system-controllers-for-nintendo-switch-000000000010000562"
 snes_controller_url="https://store.nintendo.co.uk/en/super-nintendo-entertainment-system-controller-for-nintendo-switch-000000000010002877"
 n64_controller_url="https://store.nintendo.co.uk/en/nintendo-64-controller-for-nintendo-switch-000000000010006981"
@@ -59,17 +61,14 @@ main () {
     message="$item curl not working - $site_url"
     url="$base_notification_url/$api_token/sendMessage?chat_id=$chatid&text=$message"
     curl "$url"
-    grep1_exitcode="0"
-    grep2_exitcode="0"
-    grep3="1"
-  fi
 
+  elif [ "$grep1_exitcode" != "0" ] || [ "$grep2_exitcode" != "0" ] || [ "$grep3" != "1" ]; then 
 
 # If the curl is a success then either checks to see if the required text was no longer present on the site
 # OR looks to see if the number of lines associated with grep3 isn't equal to one - Nintendo has all the text
 # available on the website under general function however adds extra instances of the required text if it's available
 # ( realistically could probably remove the other greps... )
-  if [ "$grep1_exitcode" != "0" ] || [ "$grep2_exitcode" != "0" ] || [ "$grep3" != "1" ]; then
+#  if [ "$grep1_exitcode" != "0" ] || [ "$grep2_exitcode" != "0" ] || [ "$grep3" != "1" ]; then
     message="$item possibly available  - $site_url"
     url="$base_notification_url/$api_token/sendMessage?chat_id=$group_id&text=$message"
     curl "$url"
@@ -82,7 +81,9 @@ main () {
 }
 
 # test entry using an endpoint that's liable to never go out of stock
-# main "switch charging cable" $test_url $general_group_id
+#   main "switch charging cable" $working_test_url $general_group_id
+# pointless test as nintendo replies 200 on a 404
+#   main "switch charging cable broken URL" $broken_test_url $general_group_id
 
 # call the "main" function passing it the required variables
 main "NES controller" $nes_controller_url $nes_group_id
