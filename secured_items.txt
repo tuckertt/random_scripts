@@ -1,0 +1,2 @@
+api_token="<=API token goes here, including bot ID>"
+chatid="<ID of telegram bot chat here>"
