@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # source API token and cheat ID's
-source secured_items.txt
+source /home/tuckertt/secured_items.txt
 
 # Base URL for telegram API
 base_notification_url="https://api.telegram.org"
@@ -9,7 +9,7 @@ base_notification_url="https://api.telegram.org"
 # URL for checking messages "curl $base_notification_url/$api_token/getUpdates"
 
 # URL's to monitor
-#test_url="https://store.nintendo.co.uk/en/nintendo-switch-usb-c-charging-cable-8ft-000000000010006767"
+test_url="https://store.nintendo.co.uk/en/nintendo-switch-usb-c-charging-cable-8ft-000000000010006767"
 nes_controller_url="https://store.nintendo.co.uk/en/nintendo-entertainment-system-controllers-for-nintendo-switch-000000000010000562"
 snes_controller_url="https://store.nintendo.co.uk/en/super-nintendo-entertainment-system-controller-for-nintendo-switch-000000000010002877"
 n64_controller_url="https://store.nintendo.co.uk/en/nintendo-64-controller-for-nintendo-switch-000000000010006981"
@@ -28,7 +28,8 @@ n64_group_id="-1001875493062"
 
 # main function where all the checking and notifying happens
 main () {
-  
+
+# set the first entry to "item", the second to "site_url" and the third to the group id to target
   item=$1
   site_url=$2
   group_id=$3
@@ -83,6 +84,7 @@ main () {
 # test entry using an endpoint that's liable to never go out of stock
 # main "switch charging cable" $test_url $general_group_id
 
+# call the "main" function passing it the required variables
 main "NES controller" $nes_controller_url $nes_group_id
 main "SNES controller" $snes_controller_url $snes_group_id
 main "N64 controller" $n64_controller_url $n64_group_id
