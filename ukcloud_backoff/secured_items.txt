@@ -1,0 +1,2 @@
+username="<your git username found on URL"
+git_auth_token='<git API token goes here'
