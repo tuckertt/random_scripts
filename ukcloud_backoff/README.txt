@@ -1,8 +1,11 @@
 Summary:
-Script to copy from a tar and upload the contents to a new repo in git
+Script to extract from a zip and upload the contents to a new repo in git.
+Need to set either a personal or organization account to target. An organizational account 
+will take precedence over a personal account. Git has different API endpoints depending on 
+if using an Org or User endpoint
 
-requirements:
-need to have an API token
+Requirements:
+need to have an API token for git
  - on a logged in github page open user -> settings
  - bottom left click "developer settings"
  - click "personal access tokens" -> Tokens (classic)
@@ -10,4 +13,6 @@ need to have an API token
  - scope is "repo"
  - generate token
 
-add teh tokent to secured_items.txt 
+add the token to secured_items.txt 
+
+
