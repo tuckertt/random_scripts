@@ -16,3 +16,5 @@ need to have an API token for git
 add the token to secured_items.txt 
 
 
+To Do:
+Amend .gitignore to ignore log / contents of the processing folder jic
