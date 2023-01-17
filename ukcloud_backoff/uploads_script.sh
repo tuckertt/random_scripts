@@ -60,5 +60,4 @@ for file in *.zip; do
   cd $origin_folder
   rm -rf $directory_name
   echo "completed upload of $directory_name to $username git area" >> log.txt
-  exit
 done
