@@ -62,7 +62,7 @@ main () {
   if [ "$curl_exitcode" != "0" ]; then
     message="$item curl not working - $site_url"
     url="$base_notification_url/$api_token/sendMessage?chat_id=$chatid&text=$message"
-    curl "$urli -s"
+    curl "$url -s"
 
 # If the curl is a success then either checks to see if the required text was no longer present on the site
 # OR looks to see if the number of lines associated with grep3 isn't equal to one - Nintendo has all the text
