@@ -28,3 +28,5 @@ Github has a rate limit which this script can happily hit. In order to find out 
 curl -i -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user
 
 https://support.snyk.io/hc/en-us/articles/360019183838-How-to-test-Github-Rate-limiting
+
+or use cooldown_time.sh
