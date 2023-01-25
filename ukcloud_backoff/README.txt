@@ -5,6 +5,9 @@ will take precedence over a personal account. Git has different API endpoints de
 if using an Org or User endpoint
 
 Requirements:
+
+File has to include "-master" in branch name as is for master branch of repo's
+
 need to have an API token for git
  - on a logged in github page open user -> settings
  - bottom left click "developer settings"
