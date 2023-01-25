@@ -21,3 +21,10 @@ add the token to secured_items.txt
 
 To Do:
 Amend .gitignore to ignore log / contents of the processing folder jic
+
+
+Github has a rate limit which this script can happily hit. In order to find out how long you have still to cool down:
+
+curl -i -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user
+
+https://support.snyk.io/hc/en-us/articles/360019183838-How-to-test-Github-Rate-limiting
