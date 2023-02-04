@@ -68,7 +68,7 @@ main () {
 # OR looks to see if the number of lines associated with grep3 isn't equal to one - Nintendo has all the text
 # available on the website under general function however adds extra instances of the required text if it's available
 # ( realistically could probably remove the other greps... )
-  elif [ "$grep1_exitcode" != "0" ] || [ "$grep2" != "1" ]; then
+  elif [ "$grep2" -gt "1" ]; then
 
 # check to see if there are any posts on the bots telegram feed and find out how many posts there are by the numner of update ID's  
     curl_result=$( curl -s  https://api.telegram.org/$api_token/getUpdates )
