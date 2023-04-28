@@ -1,6 +1,6 @@
 # random_scripts
 
-Nintendo alerts
+Nintendo alerts - NO LONGER WORKING -> have to re-write using selenium or other tool
   A script to find out if specific accessories are available in the Nintendo store and notify about it via telegram. Has the ability to pause alerts for periods
   
 ukcloud_backoff
