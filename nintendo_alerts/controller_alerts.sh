@@ -1,6 +1,6 @@
 #!/bin/bash
 # source API token and ID's
-source /home/tuckertt/secured_items.txt
+source ./secured_items.txt
 
 # Base URL for telegram API
 base_notification_url="https://api.telegram.org"
