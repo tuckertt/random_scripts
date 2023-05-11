@@ -5,3 +5,6 @@ Nintendo alerts - NO LONGER WORKING -> have to re-write using selenium or other 
   
 ukcloud_backoff
   script created to take zip files from bitbucket, extract them then add them to an area in github
+
+tmux_session
+  A script to configure a tmux session using either command line parameters, entered parameters or an ansible inventory
