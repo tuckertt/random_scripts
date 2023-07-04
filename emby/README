@@ -1,0 +1,8 @@
+Emby doesn't seem to like to go into the Subs folder for subtitles, let alone the dir down, at least mine doesn't
+so a script to copy them up to the dir with the video
+
+subtitle_copy.sh
+Used if only one subs directory ie films
+
+subtitle_copy_series.sh
+Used if multiple subs directories ie a season
