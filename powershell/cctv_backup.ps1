@@ -55,7 +55,16 @@ logWrite $folders
 
    LogWrite "  Oldest directory is $oldest_directory"
    LogWrite "  Removing oldest directory as currently at required folder number"
-   Remove-Item -Force -Recurse "$destination_directory\$oldest_directory"
+# Find out how many loops the delete takes  
+   $dir_del = 1
+# while loop in order to make sure space is freed up before moving on  
+   while ( test-path -Path "$destination_directory\$oldest_directory") {
+     LogWrite "  attempt $dir_del to delete $oldest_directory
+     Remove-Item -Force -Recurse "$destination_directory\$oldest_directory"
+     sleep 300
+     $dir_del += 1
+   }
+
    LogWrite "  Oldest directory removed"
    $new_oldest_directory = ls $destination_directory | sort Name | select -first 1
    LogWrite "  Now the oldest directory is $new_oldest_directory"
