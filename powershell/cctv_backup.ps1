@@ -58,8 +58,8 @@ logWrite $folders
 # Find out how many loops the delete takes  
    $dir_del = 1
 # while loop in order to make sure space is freed up before moving on  
-   while ( test-path -Path "$destination_directory\$oldest_directory") {
-     LogWrite "  attempt $dir_del to delete $oldest_directory
+   while ( test-path -Path "$destination_directory\$oldest_directory" ) {
+     LogWrite "  attempt $dir_del to delete $oldest_directory"
      Remove-Item -Force -Recurse "$destination_directory\$oldest_directory"
      sleep 300
      $dir_del += 1
