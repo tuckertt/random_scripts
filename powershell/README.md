@@ -16,3 +16,8 @@ cctv_backup.ps1 -destination_directory  z:\ -origin_directory D:\Scheduled_backu
 
 Scheduled task configuration ( mapped drive not automatically atached so targeting directly):
 -File "D:\cctv_backup.ps1" -destination_directory  \\169.254.0.1\gluster-cctv -origin_directory D:\Scheduled_backup -folder_number 15
+
+NB:
+ - While loop used in order to make sure the previous directory isn't there before adding a new one however it could be the sleep giving the delete time to work,
+need to check logs to see if it loops.
+ - Not using disk space check partially as didn't fancy mounting the drive share in the script.
