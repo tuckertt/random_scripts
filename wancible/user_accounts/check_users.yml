@@ -1,0 +1,13 @@
+---
+- name: runs ad-hoc powershell to check instance for local users
+  hosts: "{{ required_hosts }}"
+  gather_facts: false
+  tasks:
+    - name: check for local users
+      win_shell: |
+        Get-LocalUser
+      register: command_output
+    - name: command output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
+

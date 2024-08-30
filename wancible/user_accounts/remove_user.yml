@@ -1,0 +1,12 @@
+---
+- name: removes the specified user
+  hosts: "{{ required_hosts }}"
+  vars_prompt:
+    - name: username
+      prompt: what user would you like to remove?
+      private: false
+  tasks:
+    - name: "Ensure user {{ username }} isn't present"
+      ansible.windows.win_user:
+        name: "{{ username }}"
+        state: absent

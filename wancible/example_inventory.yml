@@ -1,0 +1,24 @@
+---
+all:
+  hosts:
+    Wancible1:
+      ansible_host: 192.168.38.238
+    Wancible2:
+      ansible_host: 192.168.38.179
+    Wancible3:
+      ansible_host: 192.168.38.107
+    Wancible4:
+      ansible_host: 192.168.38.239
+    Wancible5:
+      ansible_host: 192.168.38.235
+    Wancible6:
+      ansible_host: 192.168.38.223
+    Wancible9:
+      ansible_host: 192.168.38.237
+  vars:
+    ansible_user: ftlc
+    ansible_port: 5986
+    ansible_connection: winrm
+    ansible_winrm_scheme: https
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_kerberos_delegation: false

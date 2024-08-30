@@ -1,0 +1,19 @@
+---
+- name: installing windows updates
+  hosts: "{{ required_hosts }}"
+  vars:
+    reboot: no
+    uncommented_categories:
+      #- SecurityUpdates
+      #- CriticalUpdates
+      #- UpdateRollups
+      - DefinitionUpdates
+      #- Application
+      #- Connectors
+      #- FeaturePacks
+      #- ServicePacks
+  tasks:
+    - name: install all specific update type
+      ansible.windows.win_updates:
+        category_names: "{{ uncommented_categories }}"
+        reboot: "{{ reboot }}"
