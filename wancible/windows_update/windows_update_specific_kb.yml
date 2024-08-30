@@ -1,0 +1,12 @@
+---
+- name: installing specific update KB
+  hosts: "{{ required_hosts }}"
+  vars:
+    reboot: no
+  tasks:
+    - name: install specific update
+      ansible.windows.win_updates:
+        category_names: '*'
+        accept_list:
+          - "{{ required_update }}"
+        reboot: "{{ reboot }}"

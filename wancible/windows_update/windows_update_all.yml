@@ -1,0 +1,10 @@
+---
+- name: installing windows updates
+  hosts: "{{ required_hosts }}"
+  vars:
+    reboot: no
+  tasks:
+    - name: install all updates
+      ansible.windows.win_updates:
+        category_names: '*'
+        reboot: "{{ reboot }}"

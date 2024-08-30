@@ -1,0 +1,7 @@
+---
+- name: checks for connectivity to windows devices
+  hosts: "{{ required_hosts }}"
+  gather_facts: false
+  tasks:
+    - name: "'ping' the hosts"
+      ansible.windows.win_ping:

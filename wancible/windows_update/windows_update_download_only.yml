@@ -1,0 +1,8 @@
+---
+- name: Downloading windows updates
+  hosts: "{{ required_hosts }}"
+  tasks:
+    - name: Download available updates
+      ansible.windows.win_updates:
+        category_names: '*'
+        state: downloaded

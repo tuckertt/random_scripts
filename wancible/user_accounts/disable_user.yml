@@ -1,0 +1,12 @@
+---
+- name: Disables the specified user
+  hosts: "{{ required_hosts }}"
+  vars_prompt:
+    - name: username
+      prompt: what user would you like to disable?
+      private: false
+  tasks:
+    - name: "Ensure user account {{ username }} is disabled"
+      ansible.windows.win_user:
+        name: "{{ username }}"
+        account_disabled: true
